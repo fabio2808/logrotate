@@ -1,0 +1,29 @@
+/export/logs/uhi-virtual-store-core/uhi-virtual-store-core.log* {
+    daily
+    dateext
+    rotate 10
+    nocopytruncate
+    missingok
+    create 644 uhi-virtual-store-core uhs
+    compress
+    delaycompress
+    olddir /export/logs_gz/uhi-virtual-store-core/
+    postrotate
+        find /export/logs/uhi-virtual-store-core/ -type f -mtime +10 -exec rm -f {} \; | find . -size 0 -print0 | xargs -0 rm;
+   endscript
+}
+
+/export/logs/uhi-virtual-store-core/std*.log {
+    daily
+    dateext
+    rotate 5
+    missingok
+    size 300M
+    create 644 uhi-virtual-store-core uhs
+    compress
+    delaycompress
+    olddir /export/logs_gz/uhi-virtual-store-core/
+    postrotate
+        find /export/logs/uhi-virtual-store-core/ -type f -mtime +2 -exec rm -f {} \;
+   endscript
+}
