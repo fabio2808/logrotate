@@ -27,4 +27,3 @@
         find /export/logs/uhi-virtual-store-core/ -type f -mtime +2 -exec rm -f {} \;
    endscript
 }
-#end teste
