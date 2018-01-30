@@ -1,15 +1,14 @@
 /export/logs/uhi-virtual-store-server/uhi-virtual-store-server.log* {
-    create 644 uhi-virtual-store uhs    
     daily
     dateext
     rotate 10
+    nocopytruncate
     missingok
-    copytruncate
+    create 644 uhi-virtual-store uhs
     compress
-    notifempty
-    dateext
+    delaycompress
     olddir /export/logs_gz/uhi-virtual-store-server/
     postrotate
-        find /export/logs/uhi-virtual-store-server -type f -mtime +10 -exec rm -f {} \;
+        find /export/logs/uhi-virtual-store-server/ -type f -mtime +10 -exec rm -f {} \; | find /export/logs/uhi-virtual-store-server/ -size 0 -print0 | xargs -0 rm;
    endscript
 }
