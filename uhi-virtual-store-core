@@ -6,7 +6,6 @@
     missingok
     create 644 uhi-virtual-store-core uhs
     compress
-    delaycompress
     olddir /export/logs_gz/uhi-virtual-store-core/
     postrotate
         find /export/logs/uhi-virtual-store-core/ -type f -mtime +10 -exec rm -f {} \; | find /export/logs/uhi-virtual-store-core/ -size 0 -print0 | xargs -0 rm;
