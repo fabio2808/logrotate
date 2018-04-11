@@ -1,0 +1,31 @@
+/export/logs/pm2-virtual-store/virtual-store-out-0.log {
+    daily
+    dateext
+    rotate 10
+    size 100M
+    compress
+    delaycompress
+    copytruncate
+    missingok
+    create 644 uhi-virtual-store uhs
+    olddir /export/logs_gz/pm2-virtual-store/
+    postrotate
+        find /export/logs/pm2-virtual-store/ -type f -mtime +10 -exec rm -f {} \;
+   endscript
+}
+
+/export/logs/pm2-virtual-store/virtual-store-error-0.log {
+    daily
+    dateext
+    rotate 10
+    size 100M
+    compress
+    delaycompress
+    copytruncate
+    missingok
+    create 644 uhi-virtual-store uhs
+    olddir /export/logs_gz/pm2-virtual-store/
+    postrotate
+        find /export/logs/pm2-virtual-store/ -type f -mtime +10 -exec rm -f {} \;
+   endscript
+}
